@@ -1,9 +1,11 @@
 public class Exercises {
     /*
-        there is an array of integers as input of function and another integer for the target value
+        there is an array of positive integers as input of function and another integer for the target value
         all the algorithm should do is to find those two integers in array which their multiplication is the target
         then it should return an array of their indices
         e.g. {1, 2, 3, 4} with target of 8 -> {1, 3}
+
+        note: you should return the indices in ascending order and every array's solution is unique
     */
     public int[] productIndices(int[] values, int target) {
         // todo
@@ -45,7 +47,7 @@ public class Exercises {
         note: as you can see in examples, we want to generate distinct summations, which means 1, 2 and 2, 1 are no different
         you should generate all partitions of the input number and
 
-        hint: you can measure the size of array by finding the pattern of partitions and their number
+        hint: you can measure the size and order of arrays by finding the pattern of partitions and their number
         trust me, that one's fun and easy :)
     */
     public int[][] intPartitions(int n) {
