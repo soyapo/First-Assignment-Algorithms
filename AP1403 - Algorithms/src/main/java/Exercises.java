@@ -1,4 +1,5 @@
 public class Exercises {
+
     /*
         there is an array of positive integers as input of function and another integer for the target value
         all the algorithm should do is to find those two integers in array which their multiplication is the target
@@ -49,6 +50,8 @@ public class Exercises {
 
         hint: you can measure the size and order of arrays by finding the pattern of partitions and their number
         trust me, that one's fun and easy :)
+
+        if you're familiar with lists and arraylists, you can also edit method's body to use them instead of array
     */
     public int[][] intPartitions(int n) {
         // todo
