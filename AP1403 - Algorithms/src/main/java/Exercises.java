@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Exercises {
 
     /*
@@ -8,8 +10,18 @@ public class Exercises {
 
         note: you should return the indices in ascending order and every array's solution is unique
     */
-    public int[] productIndices(int[] values, int target) {
-        // todo
+    public static int[] productIndices(int[] values, int target) {
+        int len = values.length;
+        for(int i = 0; i < len; i++){
+            if(target % values[i] == 0){
+                for(int j = 0; j < len; j++){
+                    if(j == i)
+                        continue;
+                    if(values[j] * values[i] == target)
+                        return new int[]{i, j};
+                }
+            }
+        }
         return null;
     }
 
@@ -24,9 +36,35 @@ public class Exercises {
 
         so you should walk in that matrix in a curl and then add the numbers in order you've seen them in a 1D array
     */
-    public int[] spiralTraversal(int[][] values, int rows, int cols) {
-        // todo
-        return null;
+    public static int[] spiralTraversal(int[][] values, int rows, int cols) {
+        int[] result = new int[rows * cols];
+        int x = 0, y = 0, index = 0;
+        int top = 0, bottom = rows - 1;
+        int left = 0, right = cols - 1;
+        
+        while(index < rows * cols){
+            if(x == left && y == top){
+                while(x <= right)
+                    result[index++] = values[y][x++];
+                top++; y++; x--;
+            }
+            else if(x == right && y == top){
+                while(y <= bottom)
+                    result[index++] = values[y++][x];               
+                right--; y--; x--;
+            }
+            else if(x == right && y == bottom){
+                while(x >= left)
+                    result[index++] = values[y][x--];
+                bottom--; y--; x++;
+            }
+            else if(x == left && y == bottom){
+                while(y >= bottom)
+                    result[index++] = values[y][x--];
+                left++; y++; x++;
+            }
+        }
+        return result;
     }
 
     /*
@@ -53,10 +91,39 @@ public class Exercises {
 
         if you're familiar with lists and arraylists, you can also edit method's body to use them instead of array
     */
-    public int[][] intPartitions(int n) {
-        // todo
-        return null;
+    public static ArrayList<ArrayList<Integer>> intPartitions(int n) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        int last = 0, count = 0;
+        temp.add(last, n);
+        while(true){
+            result.add(temp);
+  
+            int rem = 0;
+            while(last >= 0 && temp.get(last) == 1){
+                rem += temp.get(last); 
+                last--;
+            }
+            
+            if(last < 0)  
+                break;
+  
+            temp.add(last, temp.get(last) - 1);
+            rem++;
+  
+            while(temp.get(last) < rem){
+                temp.add(last + 1, temp.get(last));
+                rem = rem - temp.get(last);
+                last++;
+            }
+            
+            temp.add(last + 1, rem);
+            last++;
+        }
+
+        return result;
     }
+    
 
     public static void main(String[] args) {
         // you can test your code here

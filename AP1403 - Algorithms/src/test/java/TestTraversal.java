@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+@SuppressWarnings("static-access")
+
 public class TestTraversal {
     static Exercises ex;
 
@@ -10,6 +12,7 @@ public class TestTraversal {
     static void setUp() {
         ex = new Exercises();
     }
+
 
     @Test
     void testTraverse0() {

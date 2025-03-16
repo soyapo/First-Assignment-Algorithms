@@ -3,6 +3,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+
+@SuppressWarnings("static-access")
+
 public class TestProduct {
     static Exercises ex;
 
